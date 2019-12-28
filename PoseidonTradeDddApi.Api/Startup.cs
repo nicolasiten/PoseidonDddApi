@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PoseidonTradeDddApi.Api.Common;
+using PoseidonTradeDddApi.Application;
 using PoseidonTradeDddApi.Application.Interfaces;
 using PoseidonTradeDddApi.Infrastructure;
 using PoseidonTradeDddApi.Infrastructure.Persistence;
@@ -33,6 +34,7 @@ namespace PoseidonTradeDddApi.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplication();
             services.AddInfrastructure(Configuration, Environment);
 
             services.AddHttpContextAccessor();
