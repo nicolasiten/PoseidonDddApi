@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using PoseidonTradeDddApi.Application.Interfaces;
+using PoseidonTradeDddApi.Domain.Entities;
 using PoseidonTradeDddApi.Infrastructure.Identity;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,16 @@ namespace PoseidonTradeDddApi.Infrastructure.Persistence
             : base(options, operationalStoreOptions)
         {
         }
+
+        public virtual DbSet<BidList> BidList { get; set; }
+
+        public virtual DbSet<CurvePoint> CurvePoint { get; set; }
+
+        public virtual DbSet<Rating> Rating { get; set; }
+
+        public virtual DbSet<RuleName> RuleName { get; set; }
+
+        public virtual DbSet<Trade> Trade { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

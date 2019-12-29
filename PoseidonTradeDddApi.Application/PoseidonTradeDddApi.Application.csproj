@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PoseidonTradeDddApi.Domain\PoseidonTradeDddApi.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
