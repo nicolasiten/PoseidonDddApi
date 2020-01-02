@@ -1,10 +1,10 @@
-﻿using PoseidonTradeDddApi.Application.Models;
+﻿using PoseidonTradeDddApi.Application.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PoseidonTradeDddApi.Application.Interfaces
+namespace PoseidonTradeDddApi.Application.Common.Interfaces
 {
     public interface IIdentityService
     {

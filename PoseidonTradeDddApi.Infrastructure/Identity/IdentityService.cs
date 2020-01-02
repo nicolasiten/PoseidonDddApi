@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using PoseidonTradeDddApi.Application.Interfaces;
-using PoseidonTradeDddApi.Application.Models;
+using PoseidonTradeDddApi.Application.Common.Interfaces;
+using PoseidonTradeDddApi.Application.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

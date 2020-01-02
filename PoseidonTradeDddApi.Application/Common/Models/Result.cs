@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PoseidonTradeDddApi.Application.Models
+namespace PoseidonTradeDddApi.Application.Common.Models
 {
     public class Result
     {

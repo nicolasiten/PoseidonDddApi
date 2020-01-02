@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PoseidonTradeDddApi.Api.Common;
 using PoseidonTradeDddApi.Application;
-using PoseidonTradeDddApi.Application.Interfaces;
+using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Infrastructure;
 using PoseidonTradeDddApi.Infrastructure.Persistence;
 

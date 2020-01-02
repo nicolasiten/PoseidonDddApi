@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PoseidonTradeDddApi.Application.Interfaces;
+using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Domain.Constants;
 using PoseidonTradeDddApi.Infrastructure.Identity;
 using PoseidonTradeDddApi.Infrastructure.Persistence;

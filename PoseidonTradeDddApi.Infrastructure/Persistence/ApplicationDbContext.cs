@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using PoseidonTradeDddApi.Application.Interfaces;
+using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Domain.Entities;
 using PoseidonTradeDddApi.Infrastructure.Identity;
 using System;

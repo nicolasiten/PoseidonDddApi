@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using PoseidonTradeDddApi.Application.Models;
+using PoseidonTradeDddApi.Application.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
