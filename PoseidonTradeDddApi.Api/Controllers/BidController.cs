@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetBid;
 using System;
 using System.Collections.Generic;
@@ -25,9 +26,9 @@ namespace PoseidonTradeDddApi.Api.Controllers
         }
 
         [HttpPost]
-        public async Task Create()
+        public async Task<ActionResult<int>> Create(CreateBidItemCommand command)
         {
-
+            return await Mediator.Send(command);
         }
 
         [HttpPut("{id}")]

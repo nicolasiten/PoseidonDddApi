@@ -3,6 +3,8 @@ using PoseidonTradeDddApi.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Application.Common.Interfaces
 {
@@ -17,5 +19,7 @@ namespace PoseidonTradeDddApi.Application.Common.Interfaces
         DbSet<RuleName> RuleName { get; set; }
 
         DbSet<Trade> Trade { get; set; }
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

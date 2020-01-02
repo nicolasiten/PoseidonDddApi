@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Infrastructure.Persistence
 {
@@ -30,6 +32,11 @@ namespace PoseidonTradeDddApi.Infrastructure.Persistence
         public virtual DbSet<RuleName> RuleName { get; set; }
 
         public virtual DbSet<Trade> Trade { get; set; }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        { 
+            return base.SaveChangesAsync(cancellationToken);
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

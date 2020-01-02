@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetBid;
 using PoseidonTradeDddApi.Domain.Entities;
 using System;
@@ -12,6 +13,7 @@ namespace PoseidonTradeDddApi.Application.Common.Mappings
         public MappingProfile()
         {
             CreateMap<BidList, BidModel>();
+            CreateMap<CreateBidItemCommand, BidList>();
         }
     }
 }
