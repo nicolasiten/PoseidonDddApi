@@ -35,7 +35,7 @@ namespace PoseidonTradeDddApi.Domain.Entities
 
         public string CreationName { get; set; }
 
-        public byte[] CreationDate { get; set; }
+        public DateTime? CreationDate { get; set; }
 
         public string RevisionName { get; set; }
 

@@ -36,7 +36,7 @@ namespace PoseidonTradeDddApi.Application.Bids.Queries.GetBid
 
         public string CreationName { get; set; }
 
-        public byte[] CreationDate { get; set; }
+        public DateTime? CreationDate { get; set; }
 
         public string RevisionName { get; set; }
 

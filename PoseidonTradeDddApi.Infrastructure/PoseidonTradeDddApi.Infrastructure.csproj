@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Persistence\Migrations\20191229111810_PoseidonTradeSchema.cs" />
+    <Compile Remove="Persistence\Migrations\20191229111810_PoseidonTradeSchema.Designer.cs" />
+    <Compile Remove="Persistence\Migrations\20200102180215_PoseidonTradeSchema.cs" />
+    <Compile Remove="Persistence\Migrations\20200102180215_PoseidonTradeSchema.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />

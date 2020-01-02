@@ -23,10 +23,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Persistence.Configuration
 
             builder.Property(e => e.Commentary).HasMaxLength(125);
 
-            builder.Property(e => e.CreationDate)
-                .IsRequired()
-                .IsRowVersion()
-                .IsConcurrencyToken();
+            builder.Property(e => e.CreationDate).HasColumnType("datetime");
 
             builder.Property(e => e.CreationName).HasMaxLength(125);
 

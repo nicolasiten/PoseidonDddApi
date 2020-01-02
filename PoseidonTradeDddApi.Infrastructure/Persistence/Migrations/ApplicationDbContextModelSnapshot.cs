@@ -275,11 +275,8 @@ namespace PoseidonTradeDddApi.Infrastructure.Persistence.Migrations
                         .HasColumnType("nvarchar(125)")
                         .HasMaxLength(125);
 
-                    b.Property<byte[]>("CreationDate")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("rowversion");
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime");
 
                     b.Property<string>("CreationName")
                         .HasColumnType("nvarchar(125)")

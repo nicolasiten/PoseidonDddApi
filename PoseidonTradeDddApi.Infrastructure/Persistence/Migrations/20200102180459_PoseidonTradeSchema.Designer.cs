@@ -10,7 +10,7 @@ using PoseidonTradeDddApi.Infrastructure.Persistence;
 namespace PoseidonTradeDddApi.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191229111810_PoseidonTradeSchema")]
+    [Migration("20200102180459_PoseidonTradeSchema")]
     partial class PoseidonTradeSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -277,11 +277,8 @@ namespace PoseidonTradeDddApi.Infrastructure.Persistence.Migrations
                         .HasColumnType("nvarchar(125)")
                         .HasMaxLength(125);
 
-                    b.Property<byte[]>("CreationDate")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("rowversion");
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime");
 
                     b.Property<string>("CreationName")
                         .HasColumnType("nvarchar(125)")

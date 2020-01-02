@@ -27,7 +27,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Persistence.Migrations
                     Trader = table.Column<string>(maxLength: 125, nullable: true),
                     Book = table.Column<string>(maxLength: 125, nullable: true),
                     CreationName = table.Column<string>(maxLength: 125, nullable: true),
-                    CreationDate = table.Column<byte[]>(rowVersion: true, nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime", nullable: true),
                     RevisionName = table.Column<string>(maxLength: 125, nullable: true),
                     RevisionDate = table.Column<DateTime>(type: "datetime", nullable: true),
                     DealName = table.Column<string>(maxLength: 125, nullable: true),

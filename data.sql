@@ -15,7 +15,7 @@ CREATE TABLE BidList (
   Trader NVARCHAR(125),
   Book NVARCHAR(125),
   CreationName NVARCHAR(125),
-  CreationDate TIMESTAMP ,
+  CreationDate DATETIME ,
   RevisionName NVARCHAR(125),
   RevisionDate DATETIME ,
   DealName NVARCHAR(125),
