@@ -1,6 +1,9 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityModel;
+using IdentityServer4.Models;
+using PoseidonTradeDddApi.Domain.Constants;
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Text;
 
 namespace PoseidonTradeDddApi.Infrastructure.Identity
@@ -20,6 +23,12 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
             new ApiResource[]
             {
                 new ApiResource(PoseidonApiName, "Poseidon Trade API")
+                {
+                    UserClaims =
+                    {
+                        JwtClaimTypes.Role
+                    }
+                }
             };
 
         public static IEnumerable<Client> Clients =>

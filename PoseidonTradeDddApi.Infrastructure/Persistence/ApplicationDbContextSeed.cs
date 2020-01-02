@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using IdentityModel;
+using Microsoft.AspNetCore.Identity;
 using PoseidonTradeDddApi.Domain.Constants;
 using PoseidonTradeDddApi.Infrastructure.Identity;
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,7 +30,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Persistence
 
                 if ((await userManager.CreateAsync(adminUser, "Poseidon1!")).Succeeded)
                 {
-                    await userManager.AddToRoleAsync(adminUser, RoleNames.Admin);
+                    await userManager.AddClaimAsync(adminUser, new Claim(JwtClaimTypes.Role, RoleNames.Admin));
                 }
             }
 

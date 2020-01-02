@@ -1,4 +1,6 @@
-﻿using IdentityServer4.AccessTokenValidation;
+﻿using IdentityModel;
+using IdentityServer4.AccessTokenValidation;
+using IdentityServer4.AspNetIdentity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PoseidonTradeDddApi.Application.Interfaces;
+using PoseidonTradeDddApi.Domain.Constants;
 using PoseidonTradeDddApi.Infrastructure.Identity;
 using PoseidonTradeDddApi.Infrastructure.Persistence;
 using System;
@@ -35,7 +38,8 @@ namespace PoseidonTradeDddApi.Infrastructure
                 .AddInMemoryIdentityResources(IdentityServerConfig.Ids)
                 .AddInMemoryApiResources(IdentityServerConfig.Apis)
                 .AddInMemoryClients(IdentityServerConfig.Clients)
-                .AddAspNetIdentity<ApplicationUser>();
+                .AddAspNetIdentity<ApplicationUser>()
+                .AddProfileService<ProfileService<ApplicationUser>>();
 
             // not recommended for production - you need to store your key material somewhere secure
             identityServerBuilder.AddDeveloperSigningCredential();
@@ -48,6 +52,11 @@ namespace PoseidonTradeDddApi.Infrastructure
                     options.Authority = configuration.GetSection("IdentityServerSettings")["Authority"];
                     options.ApiName = IdentityServerConfig.PoseidonApiName;
                 });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(RoleNames.Admin, policy => policy.RequireClaim(JwtClaimTypes.Role, RoleNames.Admin));
+            });
 
             return services;
         }
