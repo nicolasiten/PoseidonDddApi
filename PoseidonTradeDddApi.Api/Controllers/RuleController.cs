@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Bids.Commands.CreateRuleItem;
+using PoseidonTradeDddApi.Application.Bids.Commands.UpdateRuleItem;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetRule;
 using System;
 using System.Collections.Generic;
@@ -32,8 +33,16 @@ namespace PoseidonTradeDddApi.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update()
+        public async Task<ActionResult> Update(int id, UpdateRuleItemCommand command)
         {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
+            await Mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpDelete("{id}")]

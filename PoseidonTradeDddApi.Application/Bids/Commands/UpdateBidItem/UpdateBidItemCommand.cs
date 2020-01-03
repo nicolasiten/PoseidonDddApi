@@ -62,14 +62,15 @@ namespace PoseidonTradeDddApi.Application.Bids.Commands.UpdateBidItem
 
             public async Task<Unit> Handle(UpdateBidItemCommand request, CancellationToken cancellationToken)
             {
-                var entity = await _dbContext.BidList.FindAsync(request.BidListId);
+                var bidEntity = await _dbContext.BidList
+                    .FindAsync(request.BidListId);
 
-                if (entity == null)
+                if (bidEntity == null)
                 {
                     throw new NotFoundException(nameof(BidList), request.BidListId);
                 }
 
-                _mapper.Map(request, entity);
+                _mapper.Map(request, bidEntity);
 
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
