@@ -17,8 +17,4 @@
     <ProjectReference Include="..\PoseidonTradeDddApi.Domain\PoseidonTradeDddApi.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Bids\Commands\" />
-  </ItemGroup>
-
 </Project>

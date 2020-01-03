@@ -1,9 +1,10 @@
-﻿using System;
+﻿using PoseidonTradeDddApi.Domain.Common;
+using System;
 using System.Collections.Generic;
 
 namespace PoseidonTradeDddApi.Domain.Entities
 {
-    public partial class Trade
+    public partial class Trade : ChangeTrackerEntity
     {
         public int TradeId { get; set; }
 
@@ -30,14 +31,6 @@ namespace PoseidonTradeDddApi.Domain.Entities
         public string Benchmark { get; set; }
 
         public string Book { get; set; }
-
-        public string CreationName { get; set; }
-
-        public DateTime? CreationDate { get; set; }
-
-        public string RevisionName { get; set; }
-
-        public DateTime? RevisionDate { get; set; }
 
         public string DealName { get; set; }
 

@@ -47,12 +47,6 @@ namespace PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem
             RuleFor(b => b.Book)
                 .MaximumLength(125);
 
-            RuleFor(b => b.CreationName)
-                .MaximumLength(125);
-
-            RuleFor(b => b.RevisionName)
-                .MaximumLength(125);
-
             RuleFor(b => b.DealName)
                 .MaximumLength(125);
 
