@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem;
+using PoseidonTradeDddApi.Application.Bids.Commands.CreateRuleItem;
 using PoseidonTradeDddApi.Application.Bids.Commands.UpdateBidItem;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetBid;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetRule;
@@ -19,6 +20,7 @@ namespace PoseidonTradeDddApi.Application.Common.Mappings
             CreateMap<UpdateBidItemCommand, BidList>();
 
             CreateMap<RuleName, RuleModel>();
+            CreateMap<CreateRuleItemCommand, RuleName>();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PoseidonTradeDddApi.Application.Bids.Commands.CreateRuleItem;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetRule;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,9 @@ namespace PoseidonTradeDddApi.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Create()
+        public async Task<ActionResult<int>> Create(CreateRuleItemCommand command)
         {
+            return await Mediator.Send(command);
         }
 
         [HttpPut("{id}")]
