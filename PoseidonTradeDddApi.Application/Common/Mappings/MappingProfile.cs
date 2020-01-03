@@ -2,6 +2,7 @@
 using PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem;
 using PoseidonTradeDddApi.Application.Bids.Commands.UpdateBidItem;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetBid;
+using PoseidonTradeDddApi.Application.Bids.Queries.GetRule;
 using PoseidonTradeDddApi.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace PoseidonTradeDddApi.Application.Common.Mappings
             CreateMap<BidList, BidModel>();
             CreateMap<CreateBidItemCommand, BidList>();
             CreateMap<UpdateBidItemCommand, BidList>();
+
+            CreateMap<RuleName, RuleModel>();
         }
     }
 }
