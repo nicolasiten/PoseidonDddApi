@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem;
+using PoseidonTradeDddApi.Application.Bids.Commands.UpdateBidItem;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetBid;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,16 @@ namespace PoseidonTradeDddApi.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task Update()
+        public async Task<ActionResult> Update(int id, UpdateBidItemCommand command)
         {
+            if (id != command.BidListId)
+            {
+                return BadRequest();
+            }
 
+            await Mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
