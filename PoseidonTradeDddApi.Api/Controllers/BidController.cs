@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem;
+using PoseidonTradeDddApi.Application.Bids.Commands.DeleteBidItem;
 using PoseidonTradeDddApi.Application.Bids.Commands.UpdateBidItem;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetBid;
 using System;
@@ -46,9 +47,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task Delete()
+        public async Task<ActionResult> Delete(int id)
         {
- 
+            await Mediator.Send(new DeleteBidItemCommand { BidListId = id });
+
+            return NoContent();
         }
     }
 }
