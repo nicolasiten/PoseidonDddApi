@@ -1,7 +1,6 @@
 ﻿using IdentityModel;
 using IdentityServer4.AccessTokenValidation;
 using IdentityServer4.AspNetIdentity;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;

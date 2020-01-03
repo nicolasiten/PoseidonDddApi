@@ -1,6 +1,5 @@
 ﻿using IdentityModel;
 using IdentityServer4.Models;
-using PoseidonTradeDddApi.Domain.Constants;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -17,6 +16,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResources.Email()
             };
 
         public static IEnumerable<ApiResource> Apis =>
@@ -26,7 +26,8 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
                 {
                     UserClaims =
                     {
-                        JwtClaimTypes.Role
+                        JwtClaimTypes.Role,
+                        JwtClaimTypes.Email
                     }
                 }
             };

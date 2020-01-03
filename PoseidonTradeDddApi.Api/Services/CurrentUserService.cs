@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using IdentityModel;
+using Microsoft.AspNetCore.Http;
 using PoseidonTradeDddApi.Application.Common.Interfaces;
 using System.Security.Claims;
 
@@ -8,7 +9,7 @@ namespace PoseidonTradeDddApi.Api.Services
     {
         public CurrentUserService(IHttpContextAccessor httpContextAccessor)
         {
-            UserName = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+            UserName = httpContextAccessor.HttpContext?.User?.FindFirstValue(JwtClaimTypes.Email);
         }
 
         public string UserName { get; }
