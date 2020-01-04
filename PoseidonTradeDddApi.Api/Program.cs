@@ -31,8 +31,7 @@ namespace PoseidonTradeDddApi.Api
                     dbContext.Database.Migrate();
 
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-                    await ApplicationDbContextSeed.SeedIdentityAsync(userManager, roleManager);
+                    await ApplicationDbContextSeed.SeedIdentityAsync(userManager);
                 }
                 catch (Exception ex)
                 {

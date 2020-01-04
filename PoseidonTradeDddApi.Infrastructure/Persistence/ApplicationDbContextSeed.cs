@@ -12,14 +12,8 @@ namespace PoseidonTradeDddApi.Infrastructure.Persistence
 {
     public static class ApplicationDbContextSeed
     {
-        public static async Task SeedIdentityAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public static async Task SeedIdentityAsync(UserManager<ApplicationUser> userManager)
         {
-            if (!await roleManager.RoleExistsAsync(RoleNames.Admin))
-            {
-                var admin = new IdentityRole(RoleNames.Admin);
-                await roleManager.CreateAsync(admin);
-            }
-
             if ((await userManager.FindByEmailAsync("admin@poseidon.com")) == null)
             {
                 var adminUser = new ApplicationUser

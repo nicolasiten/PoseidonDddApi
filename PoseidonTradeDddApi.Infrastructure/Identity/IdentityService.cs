@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using IdentityModel;
+using Microsoft.AspNetCore.Identity;
 using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Application.Common.Models;
+using PoseidonTradeDddApi.Application.Users.Queries.GetUser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +46,27 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
             }
 
             return Result.Success();
+        }
+
+        public async Task<UserModel> GetUserAsync(string userName)
+        {
+            var user = await _userManager.FindByNameAsync(userName);
+
+            if (user != null)
+            {
+                var userModel = new UserModel
+                {
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    RoleClaims = (await _userManager.GetClaimsAsync(user))
+                        .Where(c => c.Type == JwtClaimTypes.Role)
+                        .Select(c => c.Value)
+                };
+
+                return userModel;
+            }
+
+            return null;
         }
     }
 }
