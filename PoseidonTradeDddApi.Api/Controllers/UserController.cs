@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Users.Commands.CreateUserItem;
+using PoseidonTradeDddApi.Application.Users.Commands.DeleteUserItem;
 using PoseidonTradeDddApi.Application.Users.Commands.UpdateUserItem;
 using PoseidonTradeDddApi.Application.Users.Queries.GetAllUsers;
 using PoseidonTradeDddApi.Application.Users.Queries.GetUser;
@@ -56,11 +57,13 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return NoContent();
         }
 
-        //[Authorize(Policy = RoleNames.Admin)]
-        //[HttpDelete("{id}")]
-        //public async Task<ActionResult> Delete(int id)
-        //{
+        [Authorize(Policy = RoleNames.Admin)]
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(string id)
+        {
+            await Mediator.Send(new DeleteUserItemCommand { UserId = id });
 
-        //}
+            return NoContent();
+        }
     }
 }
