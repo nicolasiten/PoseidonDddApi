@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PoseidonTradeDddApi.Application.Curve.Commands.CreateCurvePoint;
+using PoseidonTradeDddApi.Application.Curve.Commands.UpdateCurvePoint;
 using PoseidonTradeDddApi.Application.Curve.Queries.GetCurvePoint;
 using System;
 using System.Collections.Generic;
@@ -23,14 +25,22 @@ namespace PoseidonTradeDddApi.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Create()
+        public async Task<ActionResult<int>> Create(CreateCurvePointItemCommand command)
         {
+            return await Mediator.Send(command);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id)
+        public async Task<ActionResult> Update(int id, UpdateCurvePointItemCommand command)
         {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
 
+            await Mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpDelete("{id}")]

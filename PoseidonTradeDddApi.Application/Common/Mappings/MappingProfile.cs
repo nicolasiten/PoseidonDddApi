@@ -10,6 +10,8 @@ using PoseidonTradeDddApi.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using PoseidonTradeDddApi.Application.Curve.Commands.CreateCurvePoint;
+using PoseidonTradeDddApi.Application.Curve.Commands.UpdateCurvePoint;
 
 namespace PoseidonTradeDddApi.Application.Common.Mappings
 {
@@ -26,6 +28,8 @@ namespace PoseidonTradeDddApi.Application.Common.Mappings
             CreateMap<UpdateRuleItemCommand, RuleName>();
 
             CreateMap<CurvePoint, CurvePointModel>();
+            CreateMap<CreateCurvePointItemCommand, CurvePoint>();
+            CreateMap<UpdateCurvePointItemCommand, CurvePoint>();
         }
     }
 }
