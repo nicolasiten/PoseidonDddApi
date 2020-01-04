@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PoseidonTradeDddApi.Application.Bids.Commands.CreateRuleItem
+namespace PoseidonTradeDddApi.Application.Rules.Commands.CreateRuleItem
 {
     public class CreateRuleItemCommand : IRequest<int>
     {

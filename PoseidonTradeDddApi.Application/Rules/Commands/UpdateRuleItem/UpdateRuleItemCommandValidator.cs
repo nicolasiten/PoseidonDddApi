@@ -3,12 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PoseidonTradeDddApi.Application.Bids.Commands.CreateRuleItem
+namespace PoseidonTradeDddApi.Application.Rules.Commands.UpdateRuleItem
 {
-    public class CreateRuleItemCommandValidator : AbstractValidator<CreateRuleItemCommand>
+    public class UpdateRuleItemCommandValidator : AbstractValidator<UpdateRuleItemCommand>
     {
-        public CreateRuleItemCommandValidator()
+        public UpdateRuleItemCommandValidator()
         {
+            RuleFor(r => r.Id)
+                .GreaterThan(0);
+
             RuleFor(r => r.Name)
                 .MaximumLength(125);
 

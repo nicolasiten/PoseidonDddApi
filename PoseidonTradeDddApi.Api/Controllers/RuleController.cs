@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PoseidonTradeDddApi.Application.Bids.Commands.CreateRuleItem;
-using PoseidonTradeDddApi.Application.Bids.Commands.DeleteRuleItem;
-using PoseidonTradeDddApi.Application.Bids.Commands.UpdateRuleItem;
-using PoseidonTradeDddApi.Application.Bids.Queries.GetRule;
+using PoseidonTradeDddApi.Application.Rules.Commands.CreateRuleItem;
+using PoseidonTradeDddApi.Application.Rules.Commands.DeleteRuleItem;
+using PoseidonTradeDddApi.Application.Rules.Commands.UpdateRuleItem;
+using PoseidonTradeDddApi.Application.Rules.Queries.GetRule;
 using System;
 using System.Collections.Generic;
 using System.Linq;

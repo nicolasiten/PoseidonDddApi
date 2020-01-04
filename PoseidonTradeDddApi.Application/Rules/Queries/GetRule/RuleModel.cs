@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PoseidonTradeDddApi.Application.Bids.Queries.GetRule
+namespace PoseidonTradeDddApi.Application.Rules.Queries.GetRule
 {
     public class RuleModel
     {

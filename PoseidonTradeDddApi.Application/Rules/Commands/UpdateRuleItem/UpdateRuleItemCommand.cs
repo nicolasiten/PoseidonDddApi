@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PoseidonTradeDddApi.Application.Bids.Commands.UpdateRuleItem
+namespace PoseidonTradeDddApi.Application.Rules.Commands.UpdateRuleItem
 {
     public class UpdateRuleItemCommand : IRequest
     {

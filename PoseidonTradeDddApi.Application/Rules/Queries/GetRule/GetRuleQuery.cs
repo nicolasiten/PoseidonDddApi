@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PoseidonTradeDddApi.Application.Bids.Queries.GetRule
+namespace PoseidonTradeDddApi.Application.Rules.Queries.GetRule
 {
     public class GetRuleQuery : IRequest<RuleModel>
     {
