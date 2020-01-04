@@ -20,8 +20,6 @@ namespace PoseidonTradeDddApi.Application.Curve.Commands.CreateCurvePointItem
 
         public double? Value { get; set; }
 
-        public DateTime? CreationDate { get; set; }
-
         public class CreateCurvePointItemCommandHandler : IRequestHandler<CreateCurvePointItemCommand, int>
         {
             private readonly IApplicationDbContext _dbContext;
@@ -36,6 +34,7 @@ namespace PoseidonTradeDddApi.Application.Curve.Commands.CreateCurvePointItem
             public async Task<int> Handle(CreateCurvePointItemCommand request, CancellationToken cancellationToken)
             {
                 var curvePointEntity = _mapper.Map<CurvePoint>(request);
+                curvePointEntity.CreationDate = DateTime.Now;
 
                 _dbContext.CurvePoint.Add(curvePointEntity);
 

@@ -23,8 +23,6 @@ namespace PoseidonTradeDddApi.Application.Curve.Commands.UpdateCurvePointItem
 
         public double? Value { get; set; }
 
-        public DateTime? CreationDate { get; set; }
-
         public class UpdateCurvePointItemCommandHandler : IRequestHandler<UpdateCurvePointItemCommand>
         {
             private readonly IApplicationDbContext _dbContext;
