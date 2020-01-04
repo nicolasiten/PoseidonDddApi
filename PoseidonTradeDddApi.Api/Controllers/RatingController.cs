@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Ratings.Commands.CreateRatingItem;
+using PoseidonTradeDddApi.Application.Ratings.Commands.DeleteRatingItem;
 using PoseidonTradeDddApi.Application.Ratings.Commands.UpdateRatingItem;
 using PoseidonTradeDddApi.Application.Ratings.Queries.GetRating;
 using System;
@@ -48,7 +49,9 @@ namespace PoseidonTradeDddApi.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
+            await Mediator.Send(new DeleteRatingItemCommand { Id = id });
 
+            return NoContent();
         }
     }
 }
