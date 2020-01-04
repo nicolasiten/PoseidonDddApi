@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Ratings.Commands.CreateRatingItem;
+using PoseidonTradeDddApi.Application.Ratings.Commands.UpdateRatingItem;
 using PoseidonTradeDddApi.Application.Ratings.Queries.GetRating;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,16 @@ namespace PoseidonTradeDddApi.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id)
+        public async Task<ActionResult> Update(int id, UpdateRatingItemCommand command)
         {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
 
+            await Mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
