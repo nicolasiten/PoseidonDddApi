@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Application.Common.Models;
 using PoseidonTradeDddApi.Application.Users.Queries.GetUser;
+using PoseidonTradeDddApi.Domain.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,7 +22,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
             _userManager = userManager;
         }
 
-        public async Task<(Result Result, string UserId)> CreateUserAsync(string fullName, string userName, string password)
+        public async Task<(Result Result, string UserId)> CreateUserAsync(string fullName, string userName, string password, bool admin)
         {
             var user = new ApplicationUser
             {
@@ -30,6 +32,11 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
             };
 
             var result = await _userManager.CreateAsync(user, password);
+
+            if (admin)
+            {
+                await _userManager.AddClaimAsync(user, new Claim(JwtClaimTypes.Role, RoleNames.Admin));
+            }
 
             return (result.ToApplicationResult(), user.Id);
         }
@@ -80,6 +87,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
         {
             return new UserModel
             {
+                FullName = user.FullName,
                 UserName = user.UserName,
                 Email = user.Email,
                 RoleClaims = (await _userManager.GetClaimsAsync(user))
