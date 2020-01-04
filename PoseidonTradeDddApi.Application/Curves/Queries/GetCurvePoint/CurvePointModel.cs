@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PoseidonTradeDddApi.Application.Curve.Queries.GetCurvePoint
+namespace PoseidonTradeDddApi.Application.Curves.Queries.GetCurvePoint
 {
     public class CurvePointModel
     {

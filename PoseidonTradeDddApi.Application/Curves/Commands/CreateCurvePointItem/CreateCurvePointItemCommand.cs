@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PoseidonTradeDddApi.Application.Curve.Commands.CreateCurvePointItem
+namespace PoseidonTradeDddApi.Application.Curves.Commands.CreateCurvePointItem
 {
     public class CreateCurvePointItemCommand : IRequest<int>
     {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PoseidonTradeDddApi.Application.Curve.Queries.GetCurvePoint
+namespace PoseidonTradeDddApi.Application.Curves.Queries.GetCurvePoint
 {
     public class GetCurvePointQuery : IRequest<CurvePointModel>
     {

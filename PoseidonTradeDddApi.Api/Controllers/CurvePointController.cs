@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PoseidonTradeDddApi.Application.Curve.Commands.CreateCurvePointItem;
-using PoseidonTradeDddApi.Application.Curve.Commands.DeleteCurvePointItem;
-using PoseidonTradeDddApi.Application.Curve.Commands.UpdateCurvePointItem;
-using PoseidonTradeDddApi.Application.Curve.Queries.GetCurvePoint;
+using PoseidonTradeDddApi.Application.Curves.Commands.CreateCurvePointItem;
+using PoseidonTradeDddApi.Application.Curves.Commands.DeleteCurvePointItem;
+using PoseidonTradeDddApi.Application.Curves.Commands.UpdateCurvePointItem;
+using PoseidonTradeDddApi.Application.Curves.Queries.GetCurvePoint;
 using System;
 using System.Collections.Generic;
 using System.Linq;
