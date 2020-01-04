@@ -15,6 +15,7 @@ using PoseidonTradeDddApi.Application.Curves.Commands.UpdateCurvePointItem;
 using PoseidonTradeDddApi.Application.Ratings.Queries.GetRating;
 using PoseidonTradeDddApi.Application.Ratings.Commands.CreateRatingItem;
 using PoseidonTradeDddApi.Application.Ratings.Commands.UpdateRatingItem;
+using PoseidonTradeDddApi.Application.Trades.Queries.GetTrade;
 
 namespace PoseidonTradeDddApi.Application.Common.Mappings
 {
@@ -37,6 +38,8 @@ namespace PoseidonTradeDddApi.Application.Common.Mappings
             CreateMap<Rating, RatingModel>();
             CreateMap<CreateRatingItemCommand, Rating>();
             CreateMap<UpdateRatingItemCommand, Rating>();
+
+            CreateMap<Trade, TradeModel>();
         }
     }
 }
