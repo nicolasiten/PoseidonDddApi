@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Curves.Commands.CreateCurvePointItem;
 using PoseidonTradeDddApi.Application.Curves.Commands.DeleteCurvePointItem;
 using PoseidonTradeDddApi.Application.Curves.Commands.UpdateCurvePointItem;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Controllers
 {
+    [Authorize]
     public class CurvePointController : ApiController
     {
         [HttpGet("{id}")]

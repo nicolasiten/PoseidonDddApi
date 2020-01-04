@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Text;
 using PoseidonTradeDddApi.Application.Curves.Commands.CreateCurvePointItem;
 using PoseidonTradeDddApi.Application.Curves.Commands.UpdateCurvePointItem;
+using PoseidonTradeDddApi.Application.Ratings.Queries.GetRating;
 
 namespace PoseidonTradeDddApi.Application.Common.Mappings
 {
@@ -30,6 +31,8 @@ namespace PoseidonTradeDddApi.Application.Common.Mappings
             CreateMap<CurvePoint, CurvePointModel>();
             CreateMap<CreateCurvePointItemCommand, CurvePoint>();
             CreateMap<UpdateCurvePointItemCommand, CurvePoint>();
+
+            CreateMap<Rating, RatingModel>();
         }
     }
 }
