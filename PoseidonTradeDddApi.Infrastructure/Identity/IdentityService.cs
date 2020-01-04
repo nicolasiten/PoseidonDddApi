@@ -54,19 +54,38 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
 
             if (user != null)
             {
-                var userModel = new UserModel
-                {
-                    UserName = user.UserName,
-                    Email = user.Email,
-                    RoleClaims = (await _userManager.GetClaimsAsync(user))
-                        .Where(c => c.Type == JwtClaimTypes.Role)
-                        .Select(c => c.Value)
-                };
+                var userModel = await MapApplicationUserToModelAsync(user);
 
                 return userModel;
             }
 
             return null;
+        }
+
+        public async Task<IEnumerable<UserModel>> GetAllUsersAsync()
+        {
+            List<UserModel> userModels = new List<UserModel>();
+
+            var users = _userManager.Users.ToList();
+
+            foreach (var user in users)
+            {
+                userModels.Add(await MapApplicationUserToModelAsync(user));
+            }
+
+            return userModels;
+        }
+
+        private async Task<UserModel> MapApplicationUserToModelAsync(ApplicationUser user)
+        {
+            return new UserModel
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                RoleClaims = (await _userManager.GetClaimsAsync(user))
+                        .Where(c => c.Type == JwtClaimTypes.Role)
+                        .Select(c => c.Value)
+            };
         }
     }
 }

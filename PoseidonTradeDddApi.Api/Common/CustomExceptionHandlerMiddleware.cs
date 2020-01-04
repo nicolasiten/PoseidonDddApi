@@ -45,6 +45,9 @@ namespace PoseidonTradeDddApi.Api.Common
                 case NotFoundException _:
                     code = HttpStatusCode.NotFound;
                     break;
+                case ForbiddenException _:
+                    code = HttpStatusCode.Forbidden;
+                    break;
             }
 
             context.Response.ContentType = "application/json";

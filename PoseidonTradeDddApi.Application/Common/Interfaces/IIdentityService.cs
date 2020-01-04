@@ -14,5 +14,7 @@ namespace PoseidonTradeDddApi.Application.Common.Interfaces
         Task<Result> DeleteUserAsync(string userId);
 
         Task<UserModel> GetUserAsync(string userName);
+
+        Task<IEnumerable<UserModel>> GetAllUsersAsync();
     }
 }
