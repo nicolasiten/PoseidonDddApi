@@ -16,6 +16,8 @@ using PoseidonTradeDddApi.Application.Ratings.Queries.GetRating;
 using PoseidonTradeDddApi.Application.Ratings.Commands.CreateRatingItem;
 using PoseidonTradeDddApi.Application.Ratings.Commands.UpdateRatingItem;
 using PoseidonTradeDddApi.Application.Trades.Queries.GetTrade;
+using PoseidonTradeDddApi.Application.Trades.Commands.CreateTradeItem;
+using PoseidonTradeDddApi.Application.Trades.Commands.UpdateTradeItem;
 
 namespace PoseidonTradeDddApi.Application.Common.Mappings
 {
@@ -40,6 +42,8 @@ namespace PoseidonTradeDddApi.Application.Common.Mappings
             CreateMap<UpdateRatingItemCommand, Rating>();
 
             CreateMap<Trade, TradeModel>();
+            CreateMap<CreateTradeItemCommand, Trade>();
+            CreateMap<UpdateTradeItemCommand, Trade>();
         }
     }
 }

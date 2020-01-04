@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PoseidonTradeDddApi.Application.Trades.Commands.CreateTradeItem;
+using PoseidonTradeDddApi.Application.Trades.Commands.DeleteTradeItem;
+using PoseidonTradeDddApi.Application.Trades.Commands.UpdateTradeItem;
 using PoseidonTradeDddApi.Application.Trades.Queries.GetTrade;
 using System;
 using System.Collections.Generic;
@@ -25,21 +28,30 @@ namespace PoseidonTradeDddApi.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Create()
+        public async Task<ActionResult<int>> Create(CreateTradeItemCommand command)
         {
-            
+            return await Mediator.Send(command);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id)
+        public async Task<ActionResult> Update(int id, UpdateTradeItemCommand command)
         {
+            if (id != command.TradeId)
+            {
+                return BadRequest();
+            }
 
+            await Mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
+            await Mediator.Send(new DeleteTradeItemCommand { TradeId = id });
 
+            return NoContent();
         }
     }
 }
