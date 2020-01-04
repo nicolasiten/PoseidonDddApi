@@ -1,5 +1,6 @@
 ﻿using IdentityModel;
 using Microsoft.AspNetCore.Identity;
+using PoseidonTradeDddApi.Application.Common.Exceptions;
 using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Application.Common.Models;
 using PoseidonTradeDddApi.Application.Users.Queries.GetUser;
@@ -33,12 +34,43 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
 
             var result = await _userManager.CreateAsync(user, password);
 
-            if (admin)
+            if (admin && result.Succeeded)
             {
                 await _userManager.AddClaimAsync(user, new Claim(JwtClaimTypes.Role, RoleNames.Admin));
             }
 
             return (result.ToApplicationResult(), user.Id);
+        }
+
+        public async Task<Result> UpdateUserAsync(string userId, string fullName, string userName, string password, bool admin)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                throw new NotFoundException(nameof(ApplicationUser), userId);
+            }
+
+            user.FullName = fullName;
+            user.UserName = userName;
+            user.Email = userName;
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, password);
+
+            var result = await _userManager.UpdateAsync(user);
+
+            bool isAdmin = await IsAdminAsync(user);
+
+            if (admin && !isAdmin)
+            {
+                await _userManager.AddClaimAsync(user, new Claim(JwtClaimTypes.Role, RoleNames.Admin));
+            }
+
+            if (!admin && isAdmin)
+            {
+                await _userManager.RemoveClaimAsync(user, new Claim(JwtClaimTypes.Role, RoleNames.Admin));
+            }
+
+            return result.ToApplicationResult();
         }
 
         public async Task<Result> DeleteUserAsync(string userId)
@@ -83,10 +115,18 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
             return userModels;
         }
 
+        private async Task<bool> IsAdminAsync(ApplicationUser user)
+        {
+            return (await _userManager.GetClaimsAsync(user))
+                        .Where(c => c.Type == JwtClaimTypes.Role && c.Value == RoleNames.Admin)
+                        .Any();
+        }
+
         private async Task<UserModel> MapApplicationUserToModelAsync(ApplicationUser user)
         {
             return new UserModel
             {
+                UserId = user.Id,
                 FullName = user.FullName,
                 UserName = user.UserName,
                 Email = user.Email,

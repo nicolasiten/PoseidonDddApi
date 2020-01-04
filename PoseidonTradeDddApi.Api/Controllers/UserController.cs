@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Users.Commands.CreateUserItem;
+using PoseidonTradeDddApi.Application.Users.Commands.UpdateUserItem;
 using PoseidonTradeDddApi.Application.Users.Queries.GetAllUsers;
 using PoseidonTradeDddApi.Application.Users.Queries.GetUser;
 using PoseidonTradeDddApi.Domain.Constants;
@@ -41,12 +42,19 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return await Mediator.Send(command);
         }
 
-        //[Authorize(Policy = RoleNames.Admin)]
-        //[HttpPut("{id}")]
-        //public async Task<ActionResult> Update()
-        //{
+        [Authorize(Policy = RoleNames.Admin)]
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Update(string id, UpdateUserItemCommand command)
+        {
+            if (id != command.UserId)
+            {
+                return BadRequest();
+            }
 
-        //}
+            await Mediator.Send(command);
+
+            return NoContent();
+        }
 
         //[Authorize(Policy = RoleNames.Admin)]
         //[HttpDelete("{id}")]
