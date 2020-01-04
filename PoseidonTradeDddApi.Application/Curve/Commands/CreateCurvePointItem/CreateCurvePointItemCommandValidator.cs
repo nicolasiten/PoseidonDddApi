@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PoseidonTradeDddApi.Application.Curve.Commands.CreateCurvePoint
+namespace PoseidonTradeDddApi.Application.Curve.Commands.CreateCurvePointItem
 {
     public class CreateCurvePointItemCommandValidator : AbstractValidator<CreateCurvePointItemCommand>
     {

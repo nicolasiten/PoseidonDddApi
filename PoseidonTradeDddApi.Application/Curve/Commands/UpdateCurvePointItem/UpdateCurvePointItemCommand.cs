@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PoseidonTradeDddApi.Application.Curve.Commands.UpdateCurvePoint
+namespace PoseidonTradeDddApi.Application.Curve.Commands.UpdateCurvePointItem
 {
     public class UpdateCurvePointItemCommand : IRequest
     {

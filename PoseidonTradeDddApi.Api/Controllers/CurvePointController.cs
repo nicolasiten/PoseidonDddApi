@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PoseidonTradeDddApi.Application.Curve.Commands.CreateCurvePoint;
-using PoseidonTradeDddApi.Application.Curve.Commands.UpdateCurvePoint;
+using PoseidonTradeDddApi.Application.Curve.Commands.CreateCurvePointItem;
+using PoseidonTradeDddApi.Application.Curve.Commands.DeleteCurvePointItem;
+using PoseidonTradeDddApi.Application.Curve.Commands.UpdateCurvePointItem;
 using PoseidonTradeDddApi.Application.Curve.Queries.GetCurvePoint;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,9 @@ namespace PoseidonTradeDddApi.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
+            await Mediator.Send(new DeleteCurvePointItemCommand { Id = id });
 
+            return NoContent();
         }
     }
 }
