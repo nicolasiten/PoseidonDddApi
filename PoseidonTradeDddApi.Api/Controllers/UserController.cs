@@ -16,7 +16,8 @@ namespace PoseidonTradeDddApi.Api.Controllers
     [Authorize]
     public class UserController : ApiController
     {
-        [HttpGet("{action}")]
+        [HttpGet]
+        [Route("Get")]
         public async Task<ActionResult<UserModel>> Get(GetUserQuery query)
         {
             var userModel = await Mediator.Send(query);
@@ -30,7 +31,8 @@ namespace PoseidonTradeDddApi.Api.Controllers
         }
 
         [Authorize(Policy = RoleNames.Admin)]
-        [HttpGet("{action}")]
+        [HttpGet]
+        [Route("GetAll")]
         public async Task<ActionResult<List<UserModel>>> GetAll()
         {
             return (await Mediator.Send(new GetAllUsersQuery())).ToList();
