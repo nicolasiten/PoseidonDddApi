@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
+using static IdentityServer4.IdentityServerConstants;
 
 namespace PoseidonTradeDddApi.Infrastructure.Identity
 {
@@ -43,7 +44,16 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     ClientSecrets = { new Secret("85ace06d-d634-4e75-97a5-ebedba3c71ac".Sha256()) },
 
-                    AllowedScopes = { "openid", "profile", PoseidonApiName }
+                    AllowOfflineAccess = true,
+                    RefreshTokenUsage = TokenUsage.OneTimeOnly,
+
+                    AllowedScopes = 
+                    { 
+                        "openid", 
+                        "profile", 
+                        PoseidonApiName,
+                        StandardScopes.OfflineAccess
+                    }
                 }
             };
 
