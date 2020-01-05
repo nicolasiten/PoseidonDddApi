@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PoseidonTradeDddApi.Infrastructure.Identity;
 using PoseidonTradeDddApi.Infrastructure.Persistence;
+using Serilog;
 
 namespace PoseidonTradeDddApi.Api
 {
@@ -19,6 +20,10 @@ namespace PoseidonTradeDddApi.Api
     {
         public async static Task Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(Configuration())
+                .CreateLogger();
+
             var host = CreateWebHostBuilder(args).Build();
 
             using (var scope = host.Services.CreateScope())
@@ -45,6 +50,13 @@ namespace PoseidonTradeDddApi.Api
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .UseSerilog();
+
+        public static IConfiguration Configuration() => 
+            new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .Build();
     }
 }
