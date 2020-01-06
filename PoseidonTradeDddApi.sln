@@ -14,7 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		data.sql = data.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoseidonTradeDddApi.Application", "PoseidonTradeDddApi.Application\PoseidonTradeDddApi.Application.csproj", "{A83DBB05-9951-4A92-950D-2BAB6CC92C47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoseidonTradeDddApi.Application", "PoseidonTradeDddApi.Application\PoseidonTradeDddApi.Application.csproj", "{A83DBB05-9951-4A92-950D-2BAB6CC92C47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4BC613F8-DC32-431E-9826-E8462A146FB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoseidonTradeDddApi.Application.Tests", "Tests\PoseidonTradeDddApi.Application.Tests\PoseidonTradeDddApi.Application.Tests.csproj", "{0700AB12-22B8-4DF8-9579-791C89826572}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,9 +42,16 @@ Global
 		{A83DBB05-9951-4A92-950D-2BAB6CC92C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A83DBB05-9951-4A92-950D-2BAB6CC92C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A83DBB05-9951-4A92-950D-2BAB6CC92C47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0700AB12-22B8-4DF8-9579-791C89826572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0700AB12-22B8-4DF8-9579-791C89826572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0700AB12-22B8-4DF8-9579-791C89826572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0700AB12-22B8-4DF8-9579-791C89826572}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0700AB12-22B8-4DF8-9579-791C89826572} = {4BC613F8-DC32-431E-9826-E8462A146FB4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {374E3B89-76B5-4885-81CF-F850AA821F05}
