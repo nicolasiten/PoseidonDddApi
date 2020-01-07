@@ -62,6 +62,16 @@ namespace PoseidonTradeDddApi.Application.Tests
                 OrderNumber = 1
             });
 
+            dbContext.RuleName.Add(new RuleName
+            {
+                Description = "Description",
+                Json = "Json",
+                Name = "Name",
+                SqlPart = "Sql",
+                SqlStr = "Sqlstr",
+                Template = "Template"
+            });
+
             dbContext.SaveChanges();
         }
     }

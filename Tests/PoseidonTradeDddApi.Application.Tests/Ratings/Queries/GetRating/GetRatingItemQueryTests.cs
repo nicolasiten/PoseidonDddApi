@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace PoseidonTradeDddApi.Application.Tests.Ratings.Queries
+namespace PoseidonTradeDddApi.Application.Tests.Ratings.Queries.GetRating
 {
     public class GetRatingItemQueryTests : ApplicationTestBase
     {
