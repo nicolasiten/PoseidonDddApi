@@ -54,6 +54,14 @@ namespace PoseidonTradeDddApi.Application.Tests
                 Value = 2
             });
 
+            dbContext.Rating.Add(new Rating
+            {
+                FitchRating = "Fitch",
+                MoodysRating = "Moody",
+                SandPrating = "Sand",
+                OrderNumber = 1
+            });
+
             dbContext.SaveChanges();
         }
     }
