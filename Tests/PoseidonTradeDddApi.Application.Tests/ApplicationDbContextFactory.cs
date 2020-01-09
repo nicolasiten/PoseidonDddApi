@@ -72,6 +72,27 @@ namespace PoseidonTradeDddApi.Application.Tests
                 Template = "Template"
             });
 
+            dbContext.BidList.Add(new BidList
+            {
+                Account = "Account",
+                Ask = 1,
+                AskQuantity = 2,
+                Benchmark = "Benchmark",
+                Bid = 3,
+                BidListDate = new DateTime(2020, 01, 09),
+                BidQuantity = 4,
+                Book = "Book",
+                Commentary = "Commentary",
+                DealName = "DealName",
+                DealType = "DealType",
+                Security = "Security",
+                Side = "Side",
+                SourceListId = "SourceListId",
+                Status = "Status",
+                Trader = "Trader",
+                Type = "Type"
+            });
+
             dbContext.SaveChanges();
         }
     }
