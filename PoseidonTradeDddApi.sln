@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4BC613F8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoseidonTradeDddApi.Application.Tests", "Tests\PoseidonTradeDddApi.Application.Tests\PoseidonTradeDddApi.Application.Tests.csproj", "{0700AB12-22B8-4DF8-9579-791C89826572}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoseidonTradeDddApi.Api.Tests", "PoseidonTradeDddApi.Api.Tests\PoseidonTradeDddApi.Api.Tests.csproj", "{C8E3FF84-4AAC-465C-96B9-0A15BBF8EE8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,12 +48,17 @@ Global
 		{0700AB12-22B8-4DF8-9579-791C89826572}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0700AB12-22B8-4DF8-9579-791C89826572}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0700AB12-22B8-4DF8-9579-791C89826572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E3FF84-4AAC-465C-96B9-0A15BBF8EE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E3FF84-4AAC-465C-96B9-0A15BBF8EE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E3FF84-4AAC-465C-96B9-0A15BBF8EE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E3FF84-4AAC-465C-96B9-0A15BBF8EE8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0700AB12-22B8-4DF8-9579-791C89826572} = {4BC613F8-DC32-431E-9826-E8462A146FB4}
+		{C8E3FF84-4AAC-465C-96B9-0A15BBF8EE8A} = {4BC613F8-DC32-431E-9826-E8462A146FB4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {374E3B89-76B5-4885-81CF-F850AA821F05}
