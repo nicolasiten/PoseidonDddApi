@@ -18,7 +18,7 @@ namespace PoseidonTradeDddApi.Api.Tests.Controllers.Curves
         }
 
         [Fact]
-        public async Task GivenValidCreateCurveItem_ReturnsSuccessCode()
+        public async Task GivenValidCreateCurveItem_ReturnsSuccessStatusCode()
         {
             var client = await _factory.GetAuthenticatedClientAsync();
 

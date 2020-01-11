@@ -18,7 +18,7 @@ namespace PoseidonTradeDddApi.Api.Tests.Controllers.Bids
         }
 
         [Fact]
-        public async Task GivenValidUpdateBidItemCommand_ReturnsSuccessCode()
+        public async Task GivenValidUpdateBidItemCommand_ReturnsSuccessStatusCode()
         {
             var client = await _factory.GetAuthenticatedClientAsync();
 
