@@ -10,6 +10,7 @@ using PoseidonTradeDddApi.Infrastructure.Identity;
 using PoseidonTradeDddApi.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,9 +81,9 @@ namespace PoseidonTradeDddApi.Api.Tests
             {
                 Address = discoveryDocument.TokenEndpoint,
                 ClientId = IdentityServerConfig.TestClient.ClientId,
-                ClientSecret = IdentityServerConfig.TestClient.ClientId,
+                ClientSecret = "secret",
 
-                Scope = "PoseidonTradeDddApi.Api.Tests openid profile",
+                Scope = $"{IdentityServerConfig.PoseidonTestApiName} openid profile",
                 UserName = userName,
                 Password = password
             });

@@ -12,6 +12,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
     public static class IdentityServerConfig
     {
         public const string PoseidonApiName = "poseidonApi";
+        public const string PoseidonTestApiName = "PoseidonTradeDddApi.ApiAPI";
 
         public static IEnumerable<IdentityResource> Ids =>
             new IdentityResource[]
@@ -61,7 +62,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
         public static Client TestClient =>
             new Client
             {
-                ClientId = "PoseidonTradeDddApi.Tests",
+                ClientId = PoseidonTestApiName,
 
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("secret".Sha256()) },
@@ -70,7 +71,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
                 {
                     "openid",
                     "profile",
-                    "PoseidonTradeDddApi.Api.Tests",
+                    PoseidonTestApiName,
                 }
             };
 
@@ -88,5 +89,18 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
                     }
                 }
             };
+
+        public static IEnumerable<ApiResource> TestApis =>
+        new ApiResource[]
+        {
+            new ApiResource(PoseidonTestApiName, "Poseidon Trade API Tests")
+            {
+                UserClaims =
+                {
+                    JwtClaimTypes.Role,
+                    JwtClaimTypes.Email
+                }
+            }
+        };
     }
 }

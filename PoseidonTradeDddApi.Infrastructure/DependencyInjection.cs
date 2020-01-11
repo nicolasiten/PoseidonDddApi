@@ -42,6 +42,8 @@ namespace PoseidonTradeDddApi.Infrastructure
                     {
                         options.Clients.Add(IdentityServerConfig.TestClient);
                     })
+                    .AddInMemoryIdentityResources(IdentityServerConfig.Ids)
+                    .AddInMemoryApiResources(IdentityServerConfig.TestApis)
                     .AddTestUsers(IdentityServerConfig.TestUsers);
 
                 services.AddAuthentication()
