@@ -7,11 +7,11 @@ using Xunit;
 
 namespace PoseidonTradeDddApi.Api.Tests.Controllers.Bids
 {
-    public class ReadBid : IClassFixture<CustomWebApplicationFactory<Startup>>
+    public class DeleteBidTests : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
         private readonly CustomWebApplicationFactory<Startup> _factory;
 
-        public ReadBid(CustomWebApplicationFactory<Startup> factory)
+        public DeleteBidTests(CustomWebApplicationFactory<Startup> factory)
         {
             _factory = factory;
         }
@@ -29,9 +29,9 @@ namespace PoseidonTradeDddApi.Api.Tests.Controllers.Bids
         }
 
         [Fact]
-        public async Task GivenInvalidBidId_ReturnsNotFound()
+        public async Task GivenInvalidBidId_ReturnstNotFound()
         {
-            var invalidId = 33;
+            var invalidId = 44;
 
             var client = await _factory.GetAuthenticatedClientAsync();
 

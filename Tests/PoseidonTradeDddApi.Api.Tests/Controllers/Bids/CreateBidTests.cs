@@ -1,4 +1,4 @@
-﻿using PoseidonTradeDddApi.Application.Bids.Commands.UpdateBidItem;
+﻿using PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -8,23 +8,22 @@ using Xunit;
 
 namespace PoseidonTradeDddApi.Api.Tests.Controllers.Bids
 {
-    public class UpdateBid : IClassFixture<CustomWebApplicationFactory<Startup>>
+    public class CreateBidTests : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
         private readonly CustomWebApplicationFactory<Startup> _factory;
 
-        public UpdateBid(CustomWebApplicationFactory<Startup> factory)
+        public CreateBidTests(CustomWebApplicationFactory<Startup> factory)
         {
             _factory = factory;
         }
 
         [Fact]
-        public async Task GivenValidUpdateBidItemCommand_ReturnsSuccessCode()
+        public async Task GivenValidCreateBidItem_ReturnsSuccessCode()
         {
             var client = await _factory.GetAuthenticatedClientAsync();
 
-            var command = new UpdateBidItemCommand
+            var command = new CreateBidItemCommand
             {
-                BidListId = 1,
                 Account = "Account",
                 Ask = 1,
                 AskQuantity = 2,
@@ -46,19 +45,18 @@ namespace PoseidonTradeDddApi.Api.Tests.Controllers.Bids
 
             var content = IntegrationTestHelper.GetRequestContent(command);
 
-            var response = await client.PutAsync($"/api/bid/{command.BidListId}", content);
+            var response = await client.PostAsync("/api/bid", content);
 
             response.EnsureSuccessStatusCode();
         }
 
         [Fact]
-        public async Task GivenInvalidUpdateBidItemCommand_ReturnsBadRequest()
+        public async Task GivenInvalidCreateBidItem_ReturnsBadRequest()
         {
             var client = await _factory.GetAuthenticatedClientAsync();
 
-            var command = new UpdateBidItemCommand
+            var command = new CreateBidItemCommand
             {
-                BidListId = 1,
                 Account = "This String Will Exceed The Maximum Lenght.",
                 Ask = 1,
                 AskQuantity = 2,
@@ -80,7 +78,7 @@ namespace PoseidonTradeDddApi.Api.Tests.Controllers.Bids
 
             var content = IntegrationTestHelper.GetRequestContent(command);
 
-            var response = await client.PutAsync($"/api/bid/{command.BidListId}", content);
+            var response = await client.PostAsync("/api/bid", content);
 
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
         }
