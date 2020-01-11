@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PoseidonTradeDddApi.Api\PoseidonTradeDddApi.Api.csproj" />
-    <ProjectReference Include="..\PoseidonTradeDddApi.Infrastructure\PoseidonTradeDddApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\PoseidonTradeDddApi.Api\PoseidonTradeDddApi.Api.csproj" />
+    <ProjectReference Include="..\..\PoseidonTradeDddApi.Infrastructure\PoseidonTradeDddApi.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
