@@ -28,4 +28,4 @@ There's an exception handler middleware (CustomExceptionHandlerMiddleware.cs) wh
 ### Request Logging
 Each Request to the Backend through MediatR gets logged thank's to the RequestLogger.cs.
 ### Validation
-For Each Request to the Backend through MediatR the RequestValidationBehaviour.cs automatically checks if there are validators (FluentValidation) defined for the sent entities, if there are any they get validated automatically.
+For Each Request to the Backend through MediatR the RequestValidationBehaviour.cs automatically checks if there are validators (FluentValidation) defined for the sent entities, if there are any they get validated.
