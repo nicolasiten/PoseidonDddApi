@@ -68,15 +68,5 @@ namespace PoseidonTradeDddApi.Api.Controllers
 
             return NoContent();
         }
-
-        [Authorize]
-        [HttpGet]
-        [Route("Logout")]
-        public async Task<ActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync();
-
-            return NoContent();
-        }
     }
 }
