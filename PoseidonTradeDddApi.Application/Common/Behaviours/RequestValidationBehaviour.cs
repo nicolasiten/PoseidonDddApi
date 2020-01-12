@@ -10,6 +10,13 @@ using ValidationException = PoseidonTradeDddApi.Application.Common.Exceptions.Va
 
 namespace PoseidonTradeDddApi.Application.Common.Behaviours
 {
+    /// <summary>
+    /// Each request gets validated automatically if there's a FluentValidation validator defined for it.
+    /// If there are errors a ValidationException will be thrown.
+    /// https://github.com/jbogard/MediatR/wiki/Behaviors
+    /// </summary>
+    /// <typeparam name="TRequest"></typeparam>
+    /// <typeparam name="TResponse"></typeparam>
     public class RequestValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
     {

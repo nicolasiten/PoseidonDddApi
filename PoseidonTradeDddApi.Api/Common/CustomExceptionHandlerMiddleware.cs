@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Common
 {
+    /// <summary>
+    /// .Net Core Middleware - https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-3.1
+    /// </summary>
     public class CustomExceptionHandlerMiddleware
     {
         private readonly RequestDelegate _next;
@@ -18,6 +21,11 @@ namespace PoseidonTradeDddApi.Api.Common
             _next = next;
         }
 
+        /// <summary>
+        /// Try catch block around each request
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public async Task Invoke(HttpContext context)
         {
             try
@@ -30,6 +38,12 @@ namespace PoseidonTradeDddApi.Api.Common
             }
         }
 
+        /// <summary>
+        /// Return specific StatusCodes on certain Exceptions
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="exception"></param>
+        /// <returns></returns>
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             var code = HttpStatusCode.InternalServerError;

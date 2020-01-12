@@ -18,8 +18,8 @@
 ## PoseidonTradeDddApi.Api
 - WebApi project
 # Comments
-## DB Access
-For the DB Access the CQRS pattern is implemented. Each command has it's own input/output entity and is completely independent.
+## DB Access - CQRS
+For the DB Access the CQRS pattern is implemented. Each command has it's own input/output entity and is completely independent. Input objects (TRequest) get mapped automatically to entity objects thank's to the use of Automapper.
 ## Mediator
 To have the frontend as loosely coupled as possible the MediatR Library is used. Thank's to the ApiController Base Controller the Controllers have zero dependencies.
 ## Middleware

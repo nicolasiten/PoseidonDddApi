@@ -9,6 +9,13 @@ using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Application.Common.Behaviours
 {
+    /// <summary>
+    /// Custom MediatR request pipeline.
+    /// Gets executed before the request is processed.
+    /// Request and User Details get logged
+    /// https://github.com/jbogard/MediatR/wiki/Behaviors
+    /// </summary>
+    /// <typeparam name="TRequest"></typeparam>
     public class RequestLogger<TRequest> : IRequestPreProcessor<TRequest>
     {
         private readonly ILogger _logger;
