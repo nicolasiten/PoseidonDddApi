@@ -14,6 +14,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
     [Authorize]
     public class RuleController : ApiController
     {
+        /// <summary>
+        /// Retrieve the rule by Id.
+        /// </summary>
+        /// <param name="id">The id of the desired rule.</param>
+        /// <returns>The desired RuleModel.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<RuleModel>> Get(int id)
         {
@@ -27,12 +32,23 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return ruleModel;
         }
 
+        /// <summary>
+        /// Create a new rule item.
+        /// </summary>
+        /// <param name="command">CreateRuleItemCommand to create the rule item</param>
+        /// <returns>Number of items added.</returns>
         [HttpPost]
         public async Task<ActionResult<int>> Create(CreateRuleItemCommand command)
         {
             return await Mediator.Send(command);
         }
 
+        /// <summary>
+        /// Update an existing rule item.
+        /// </summary>
+        /// <param name="id">id of the rule item to update</param>
+        /// <param name="command">UpdateRuleItemCommand to update the rule item</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, UpdateRuleItemCommand command)
         {
@@ -46,6 +62,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Deletes an existing rule item.
+        /// </summary>
+        /// <param name="id">id of the rule item to delete</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

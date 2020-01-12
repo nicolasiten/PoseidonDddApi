@@ -19,6 +19,8 @@ using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Infrastructure;
 using PoseidonTradeDddApi.Infrastructure.Persistence;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
 
 namespace PoseidonTradeDddApi.Api
 {
@@ -65,6 +67,10 @@ namespace PoseidonTradeDddApi.Api
                     Type = SecuritySchemeType.ApiKey,
                     Scheme = "Bearer"
                 });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
 
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement()
                 {

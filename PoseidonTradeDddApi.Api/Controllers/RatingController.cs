@@ -14,6 +14,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
     [Authorize]
     public class RatingController : ApiController
     {
+        /// <summary>
+        /// Retrieve the rating by Id.
+        /// </summary>
+        /// <param name="id">The id of the desired rating.</param>
+        /// <returns>The desired RatingModel.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<RatingModel>> Get(int id)
         {
@@ -27,12 +32,22 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return ratingModel;
         }
 
+        /// <summary>
+        /// Create a new rating item.
+        /// </summary>
+        /// <param name="command">CreateRatingItemCommand to create the rating item</param>
+        /// <returns>Number of items added.</returns>
         [HttpPost]
         public async Task<ActionResult<int>> Create(CreateRatingItemCommand command)
         {
             return await Mediator.Send(command);
         }
 
+        /// <summary>
+        /// Update an existing rating item.
+        /// </summary>
+        /// <param name="id">id of the rating item to update</param>
+        /// <param name="command">UpdateRatingItemCommand to update the rating item</param>
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, UpdateRatingItemCommand command)
         {
@@ -46,6 +61,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Deletes an existing rating item.
+        /// </summary>
+        /// <param name="id">id of the rating item to delete</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

@@ -14,6 +14,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
     [Authorize]
     public class CurvePointController : ApiController
     {
+        /// <summary>
+        /// Retrieve the curvepoint by Id.
+        /// </summary>
+        /// <param name="id">The id of the desired curvepoint.</param>
+        /// <returns>The desired CurvePointModel.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<CurvePointModel>> Get(int id)
         {
@@ -27,12 +32,22 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return curvePointModel;
         }
 
+        /// <summary>
+        /// Create a new curvepoint item.
+        /// </summary>
+        /// <param name="command">CreateCurvePointItemCommand to create the curvepoint item</param>
+        /// <returns>Number of items added.</returns>
         [HttpPost]
         public async Task<ActionResult<int>> Create(CreateCurvePointItemCommand command)
         {
             return await Mediator.Send(command);
         }
 
+        /// <summary>
+        /// Update an existing curvepoint item.
+        /// </summary>
+        /// <param name="id">id of the curvepoint item to update</param>
+        /// <param name="command">UpdateCurvePointItemCommand to update the curvepoint item</param>
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, UpdateCurvePointItemCommand command)
         {
@@ -46,6 +61,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Deletes an existing curvepoint item.
+        /// </summary>
+        /// <param name="id">id of the curvepoint item to delete</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

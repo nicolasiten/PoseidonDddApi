@@ -14,6 +14,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
     [Authorize]
     public class TradeController : ApiController
     {
+        /// <summary>
+        /// Retrieve the trade by Id.
+        /// </summary>
+        /// <param name="id">The id of the desired trade.</param>
+        /// <returns>The desired TradeModel.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<TradeModel>> Get(int id)
         {
@@ -27,12 +32,23 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return tradeModel;
         }
 
+        /// <summary>
+        /// Create a new trade item.
+        /// </summary>
+        /// <param name="command">CreateTradeItemCommand to create the trade item</param>
+        /// <returns>Number of items added.</returns>
         [HttpPost]
         public async Task<ActionResult<int>> Create(CreateTradeItemCommand command)
         {
             return await Mediator.Send(command);
         }
 
+        /// <summary>
+        /// Update an existing trade item.
+        /// </summary>
+        /// <param name="id">id of the trade item to update</param>
+        /// <param name="command">UpdateTradeItemCommand to update the trade item</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, UpdateTradeItemCommand command)
         {
@@ -46,6 +62,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Deletes an existing trade item.
+        /// </summary>
+        /// <param name="id">id of the trade item to delete</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

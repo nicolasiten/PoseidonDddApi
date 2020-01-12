@@ -17,6 +17,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
     [Authorize]
     public class UserController : ApiController
     {
+        /// <summary>
+        /// Retrieve the user by Id.
+        /// </summary>
+        /// <param name="id">The id of the desired user.</param>
+        /// <returns>The desired UserModel.</returns>
         [HttpGet]
         [Route("Get")]
         public async Task<ActionResult<UserModel>> Get(GetUserQuery query)
@@ -31,6 +36,10 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return userModel;
         }
 
+        /// <summary>
+        /// Retrieve all users.
+        /// </summary>
+        /// <returns>All UserModels.</returns>
         [Authorize(Policy = RoleNames.Admin)]
         [HttpGet]
         [Route("GetAll")]
@@ -39,6 +48,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return (await Mediator.Send(new GetAllUsersQuery())).ToList();
         }
 
+        /// <summary>
+        /// Create a new user item.
+        /// </summary>
+        /// <param name="command">CreateUserItemCommand to create the bid item</param>
+        /// <returns>Number of items added.</returns>
         [Authorize(Policy = RoleNames.Admin)]
         [HttpPost]
         public async Task<ActionResult<string>> Create(CreateUserItemCommand command)
@@ -46,6 +60,12 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return await Mediator.Send(command);
         }
 
+        /// <summary>
+        /// Update an existing user item.
+        /// </summary>
+        /// <param name="id">id of the user item to update</param>
+        /// <param name="command">UpdateUserItemCommand to update the user item</param>
+        /// <returns></returns>
         [Authorize(Policy = RoleNames.Admin)]
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(string id, UpdateUserItemCommand command)
@@ -60,6 +80,11 @@ namespace PoseidonTradeDddApi.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Deletes an existing user item.
+        /// </summary>
+        /// <param name="id">id of the user item to delete</param>
+        /// <returns></returns>
         [Authorize(Policy = RoleNames.Admin)]
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(string id)
