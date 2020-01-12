@@ -68,6 +68,7 @@ namespace PoseidonTradeDddApi.Infrastructure
                     {
                         options.Authority = configuration.GetSection("IdentityServerSettings")["Authority"];
                         options.ApiName = IdentityServerConfig.PoseidonApiName;
+                        options.ApiSecret = "8D969CCE-E211-41CE-BC10-35943D0B1447";
                     });
 
                 services.AddAuthorization(options =>

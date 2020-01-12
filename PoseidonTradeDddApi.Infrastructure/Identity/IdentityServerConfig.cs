@@ -27,6 +27,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
             {
                 new ApiResource(PoseidonApiName, "Poseidon Trade API")
                 {
+                    ApiSecrets = { new Secret("8D969CCE-E211-41CE-BC10-35943D0B1447".Sha256()) },
                     UserClaims =
                     {
                         JwtClaimTypes.Role,
@@ -46,6 +47,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     ClientSecrets = { new Secret("85ace06d-d634-4e75-97a5-ebedba3c71ac".Sha256()) },
 
+                    AccessTokenType = AccessTokenType.Reference,
                     AllowOfflineAccess = true,
                     RefreshTokenUsage = TokenUsage.OneTimeOnly,
 
