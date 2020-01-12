@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Users.Commands.CreateUserItem;
 using PoseidonTradeDddApi.Application.Users.Commands.DeleteUserItem;
@@ -64,6 +65,16 @@ namespace PoseidonTradeDddApi.Api.Controllers
         public async Task<ActionResult> Delete(string id)
         {
             await Mediator.Send(new DeleteUserItemCommand { UserId = id });
+
+            return NoContent();
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("Logout")]
+        public async Task<ActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
 
             return NoContent();
         }

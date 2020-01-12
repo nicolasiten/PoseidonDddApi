@@ -1,5 +1,6 @@
 ﻿using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
+using PoseidonTradeDddApi.Application.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,10 +12,12 @@ namespace PoseidonTradeDddApi.Application.Common.Behaviours
     public class RequestLogger<TRequest> : IRequestPreProcessor<TRequest>
     {
         private readonly ILogger _logger;
+        private readonly ICurrentUserService _currentUserService;
 
-        public RequestLogger(ILogger<TRequest> logger)
+        public RequestLogger(ILogger<TRequest> logger, ICurrentUserService currentUserService)
         {
             _logger = logger;
+            _currentUserService = currentUserService;
         }
 
         public async Task Process(TRequest request, CancellationToken cancellationToken)
@@ -22,7 +25,7 @@ namespace PoseidonTradeDddApi.Application.Common.Behaviours
             var requestName = typeof(TRequest).Name;
             var requestFullName = typeof(TRequest).FullName;
 
-            _logger.LogInformation($"API Request: {requestName} {requestFullName}");
+            _logger.LogInformation($"API Request: {requestName} | User Id: {_currentUserService.UserName} | Full RequestName: {requestFullName}");
         }
     }
 }
