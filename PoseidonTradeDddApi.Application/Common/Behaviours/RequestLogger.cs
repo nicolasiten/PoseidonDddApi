@@ -25,7 +25,7 @@ namespace PoseidonTradeDddApi.Application.Common.Behaviours
             var requestName = typeof(TRequest).Name;
             var requestFullName = typeof(TRequest).FullName;
 
-            _logger.LogInformation($"API Request: {requestName} | User Id: {_currentUserService.UserName} | Full RequestName: {requestFullName}");
+            _logger.LogInformation($"request:{requestName};userId:{_currentUserService.UserName};fullRequestName:{requestFullName}");
         }
     }
 }

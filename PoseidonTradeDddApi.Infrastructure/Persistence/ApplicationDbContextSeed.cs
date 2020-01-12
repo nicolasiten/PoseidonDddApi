@@ -1,11 +1,14 @@
 ﻿using IdentityModel;
 using Microsoft.AspNetCore.Identity;
 using PoseidonTradeDddApi.Domain.Constants;
+using PoseidonTradeDddApi.Domain.Entities;
 using PoseidonTradeDddApi.Infrastructure.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Infrastructure.Persistence
@@ -38,6 +41,93 @@ namespace PoseidonTradeDddApi.Infrastructure.Persistence
 
                 await userManager.CreateAsync(user, "Poseidon1!");
             }
+        }
+
+        public static async Task SeedDataAsync(ApplicationDbContext dbContext)
+        {
+            if (!dbContext.CurvePoint.Any())
+            {
+                dbContext.CurvePoint.Add(new CurvePoint
+                {
+                    AsOfDate = new DateTime(2020, 01, 10),
+                    CurveId = 1,
+                    Term = 1,
+                    Value = 2
+                });
+            }
+
+            if (!dbContext.Rating.Any())
+            {
+                dbContext.Rating.Add(new Rating
+                {
+                    FitchRating = "Fitch",
+                    MoodysRating = "Moody",
+                    SandPrating = "Sand",
+                    OrderNumber = 1
+                });
+            }
+
+            if (!dbContext.RuleName.Any())
+            {
+                dbContext.RuleName.Add(new RuleName
+                {
+                    Description = "Description",
+                    Json = "Json",
+                    Name = "Name",
+                    SqlPart = "Sql",
+                    SqlStr = "Sqlstr",
+                    Template = "Template"
+                });
+            }
+
+            if (!dbContext.BidList.Any())
+            {
+                dbContext.BidList.Add(new BidList
+                {
+                    Account = "Account",
+                    Ask = 1,
+                    AskQuantity = 2,
+                    Benchmark = "Benchmark",
+                    Bid = 3,
+                    BidListDate = new DateTime(2020, 01, 09),
+                    BidQuantity = 4,
+                    Book = "Book",
+                    Commentary = "Commentary",
+                    DealName = "DealName",
+                    DealType = "DealType",
+                    Security = "Security",
+                    Side = "Side",
+                    SourceListId = "SourceListId",
+                    Status = "Status",
+                    Trader = "Trader",
+                    Type = "Type"
+                });
+            }
+
+            if (!dbContext.Trade.Any())
+            {
+                dbContext.Trade.Add(new Trade
+                {
+                    Account = "Account",
+                    Book = "Book",
+                    DealName = "DealName",
+                    DealType = "DealType",
+                    Security = "Security",
+                    Side = "Side",
+                    SourceListId = "SourceListId",
+                    Status = "Status",
+                    Trader = "Trader",
+                    Type = "Type",
+                    Benchmark = "Benchmark",
+                    BuyPrice = 1,
+                    BuyQuantity = 2,
+                    SellPrice = 3,
+                    SellQuantity = 4,
+                    TradeDate = new DateTime(2020, 01, 10)
+                });
+            }
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }

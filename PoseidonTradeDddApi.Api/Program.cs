@@ -33,9 +33,10 @@ namespace PoseidonTradeDddApi.Api
                 try
                 {
                     var dbContext = services.GetRequiredService<ApplicationDbContext>();
-                    dbContext.Database.Migrate();
-
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+
+                    dbContext.Database.Migrate();
+                    await ApplicationDbContextSeed.SeedDataAsync(dbContext);
                     await ApplicationDbContextSeed.SeedIdentityAsync(userManager);
                 }
                 catch (Exception ex)
