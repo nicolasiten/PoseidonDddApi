@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace PoseidonTradeDddApi.Application.Common.Behaviours
 {
     /// <summary>
-    /// Custom MediatR request pipeline.
+    /// Custom MediatR request pipeline/filter.
     /// Gets executed before the request is processed.
     /// Request and User Details get logged
     /// https://github.com/jbogard/MediatR/wiki/Behaviors

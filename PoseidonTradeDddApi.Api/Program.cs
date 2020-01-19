@@ -20,15 +20,17 @@ namespace PoseidonTradeDddApi.Api
     {
         public async static Task Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(Configuration())
-                .CreateLogger();
-
             var host = CreateWebHostBuilder(args).Build();
 
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
+
+                var config = services.GetRequiredService<IConfiguration>();
+
+                Log.Logger = new LoggerConfiguration()
+                    .ReadFrom.Configuration(config)
+                    .CreateLogger();
 
                 try
                 {
@@ -53,11 +55,5 @@ namespace PoseidonTradeDddApi.Api
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseSerilog();
-
-        public static IConfiguration Configuration() => 
-            new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-            .Build();
     }
 }
