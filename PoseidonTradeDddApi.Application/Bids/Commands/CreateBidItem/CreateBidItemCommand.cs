@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem
 {
+    /// <summary>
+    /// Request class. Defines the request structure for creating a BidItem.
+    /// </summary>
     public class CreateBidItemCommand : IRequest<int>
     {
         public string Account { get; set; }
@@ -44,6 +47,9 @@ namespace PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem
 
         public string Side { get; set; }
 
+        /// <summary>
+        /// Handler for CreateBidItemCommand --> Takes CreateBidItemCommand as input and saves it to the database.
+        /// </summary>
         public class CreateBidItemCommandHandler : IRequestHandler<CreateBidItemCommand, int>
         {
             private readonly IApplicationDbContext _dbContext;
