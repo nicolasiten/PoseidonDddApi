@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Rules.Commands.CreateRuleItem;
 using PoseidonTradeDddApi.Application.Rules.Commands.DeleteRuleItem;
 using PoseidonTradeDddApi.Application.Rules.Commands.UpdateRuleItem;
+using PoseidonTradeDddApi.Application.Rules.Queries.GetAllRules;
 using PoseidonTradeDddApi.Application.Rules.Queries.GetRule;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Controllers
@@ -27,6 +30,17 @@ namespace PoseidonTradeDddApi.Api.Controllers
             }
 
             return ruleModel;
+        }
+
+        /// <summary>
+        /// Retrieve all rules.
+        /// </summary>
+        /// <returns>All RuleModels.</returns>
+        [HttpGet]
+        [Route("GetAll")]
+        public async Task<ActionResult<List<RuleModel>>> GetAll()
+        {
+            return (await Mediator.Send(new GetAllRulesQuery())).ToList();
         }
 
         /// <summary>

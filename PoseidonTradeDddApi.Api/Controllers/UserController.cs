@@ -16,15 +16,14 @@ namespace PoseidonTradeDddApi.Api.Controllers
     public class UserController : ApiController
     {
         /// <summary>
-        /// Retrieve the user by Id.
+        /// Retrieve the user by userName.
         /// </summary>
-        /// <param name="id">The id of the desired user.</param>
-        /// <returns>The desired UserModel.</returns>
-        [HttpGet]
-        [Route("Get")]
-        public async Task<ActionResult<UserModel>> Get(GetUserQuery query)
+        /// <param name="userName">The UserName.</param>
+        /// <returns></returns>
+        [HttpGet("{userName}")]
+        public async Task<ActionResult<UserModel>> Get(string userName)
         {
-            var userModel = await Mediator.Send(query);
+            var userModel = await Mediator.Send(new GetUserQuery { UserName = userName });
 
             if (userModel == null)
             {

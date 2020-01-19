@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Ratings.Commands.CreateRatingItem;
 using PoseidonTradeDddApi.Application.Ratings.Commands.DeleteRatingItem;
 using PoseidonTradeDddApi.Application.Ratings.Commands.UpdateRatingItem;
+using PoseidonTradeDddApi.Application.Ratings.Queries.GetAllRatings;
 using PoseidonTradeDddApi.Application.Ratings.Queries.GetRating;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Controllers
@@ -27,6 +30,17 @@ namespace PoseidonTradeDddApi.Api.Controllers
             }
 
             return ratingModel;
+        }
+
+        /// <summary>
+        /// Retrieve all ratings
+        /// </summary>
+        /// <returns>All RatingModels.</returns>
+        [HttpGet]
+        [Route("GetAll")]
+        public async Task<ActionResult<List<RatingModel>>> GetAll()
+        {
+            return (await Mediator.Send(new GetAllRatingsQuery())).ToList();
         }
 
         /// <summary>

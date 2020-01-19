@@ -1,9 +1,14 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Curves.Commands.CreateCurvePointItem;
 using PoseidonTradeDddApi.Application.Curves.Commands.DeleteCurvePointItem;
 using PoseidonTradeDddApi.Application.Curves.Commands.UpdateCurvePointItem;
+using PoseidonTradeDddApi.Application.Curves.Queries.GetAllCurvePoints;
 using PoseidonTradeDddApi.Application.Curves.Queries.GetCurvePoint;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Controllers
@@ -27,6 +32,22 @@ namespace PoseidonTradeDddApi.Api.Controllers
             }
 
             return curvePointModel;
+        }
+
+        /// <summary>
+        /// Retrieve all curvepoints.
+        /// </summary>
+        /// <returns>All CuvePointModels.</returns>
+        [HttpGet]
+        [Route("GetAll")]
+        public async Task<ActionResult<List<CurvePointModel>>> GetAll()
+        {
+            return (await Mediator.Send(new GetAllCurvePointsQuery())).ToList();
+        }
+
+        private IRequest<object> GetAllCurvePointsQuery()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

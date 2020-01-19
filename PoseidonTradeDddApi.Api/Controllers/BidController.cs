@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem;
 using PoseidonTradeDddApi.Application.Bids.Commands.DeleteBidItem;
 using PoseidonTradeDddApi.Application.Bids.Commands.UpdateBidItem;
+using PoseidonTradeDddApi.Application.Bids.Queries.GetAllBids;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetBid;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Controllers
@@ -27,6 +30,17 @@ namespace PoseidonTradeDddApi.Api.Controllers
             }
 
             return bidModel;
+        }
+
+        /// <summary>
+        /// Retrieve all bids.
+        /// </summary>
+        /// <returns>All BidModels.</returns>
+        [HttpGet]
+        [Route("GetAll")]
+        public async Task<ActionResult<List<BidModel>>> GetAll()
+        {
+            return (await Mediator.Send(new GetAllBidsQuery())).ToList();
         }
 
         /// <summary>

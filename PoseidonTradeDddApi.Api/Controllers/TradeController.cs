@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Trades.Commands.CreateTradeItem;
 using PoseidonTradeDddApi.Application.Trades.Commands.DeleteTradeItem;
 using PoseidonTradeDddApi.Application.Trades.Commands.UpdateTradeItem;
+using PoseidonTradeDddApi.Application.Trades.Queries.GetAllTrades;
 using PoseidonTradeDddApi.Application.Trades.Queries.GetTrade;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Controllers
@@ -27,6 +30,17 @@ namespace PoseidonTradeDddApi.Api.Controllers
             }
 
             return tradeModel;
+        }
+
+        /// <summary>
+        /// Retrieve all trades.
+        /// </summary>
+        /// <returns>All TradeModels.</returns>
+        [HttpGet]
+        [Route("GetAll")]
+        public async Task<ActionResult<List<TradeModel>>> GetAll()
+        {
+            return (await Mediator.Send(new GetAllTradesQuery())).ToList();
         }
 
         /// <summary>
