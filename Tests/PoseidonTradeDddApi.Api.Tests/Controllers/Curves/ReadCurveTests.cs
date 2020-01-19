@@ -26,6 +26,16 @@ namespace PoseidonTradeDddApi.Api.Tests.Controllers.Curves
         }
 
         [Fact]
+        public async Task GetAllCurves_ReturnsSuccessStatusCode()
+        {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
+            var response = await client.GetAsync("/api/curvepoint/getall");
+
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Fact]
         public async Task GivenInvalidCurveId_ReturnsNotFound()
         {
             var invalidId = 22;

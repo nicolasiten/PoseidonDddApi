@@ -26,6 +26,16 @@ namespace PoseidonTradeDddApi.Api.Tests.Controllers.Rules
         }
 
         [Fact]
+        public async Task GetAllRules_ReturnsSuccessStatusCode()
+        {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
+            var response = await client.GetAsync("/api/rule/getall");
+
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Fact]
         public async Task GivenInvalidRuleId_ReturnsNotFound()
         {
             var invalidId = 11;

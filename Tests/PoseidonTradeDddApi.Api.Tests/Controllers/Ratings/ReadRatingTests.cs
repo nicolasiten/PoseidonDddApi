@@ -26,6 +26,16 @@ namespace PoseidonTradeDddApi.Api.Tests.Controllers.Ratings
         }
 
         [Fact]
+        public async Task GetAllRatings_ReturnsSuccessStatusCode()
+        {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
+            var response = await client.GetAsync("/api/rating/getall");
+
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Fact]
         public async Task GivenInvalidRatingId_ReturnsNotFound()
         {
             var invalidId = 33;

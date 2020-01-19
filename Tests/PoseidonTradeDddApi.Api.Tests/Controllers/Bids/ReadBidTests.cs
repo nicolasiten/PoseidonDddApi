@@ -26,6 +26,16 @@ namespace PoseidonTradeDddApi.Api.Tests.Controllers.Bids
         }
 
         [Fact]
+        public async Task GetAllBids_ReturnsSuccessStatusCode()
+        {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
+            var response = await client.GetAsync("/api/bid/getall");
+
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Fact]
         public async Task GivenInvalidBidId_ReturnsNotFound()
         {
             var invalidId = 33;

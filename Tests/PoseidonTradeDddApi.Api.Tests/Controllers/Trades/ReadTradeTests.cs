@@ -26,6 +26,16 @@ namespace PoseidonTradeDddApi.Api.Tests.Controllers.Trades
         }
 
         [Fact]
+        public async Task GetAllTrades_ReturnsSuccessStatusCode()
+        {
+            var client = await _factory.GetAuthenticatedClientAsync();
+
+            var response = await client.GetAsync("/api/trade/getall");
+
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Fact]
         public async Task GivenInvalidTradeId_ReturnsNotFound()
         {
             var invalidId = 22;
