@@ -7,8 +7,6 @@ using PoseidonTradeDddApi.Domain.Constants;
 using PoseidonTradeDddApi.Domain.Entities;
 using PoseidonTradeDddApi.Infrastructure.Persistence;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PoseidonTradeDddApi.Application.Tests
 {

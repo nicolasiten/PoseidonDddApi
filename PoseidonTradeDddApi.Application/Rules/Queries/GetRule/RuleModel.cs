@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PoseidonTradeDddApi.Application.Rules.Queries.GetRule
+﻿namespace PoseidonTradeDddApi.Application.Rules.Queries.GetRule
 {
     public class RuleModel
     {

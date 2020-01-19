@@ -4,9 +4,6 @@ using PoseidonTradeDddApi.Application.Trades.Commands.CreateTradeItem;
 using PoseidonTradeDddApi.Application.Trades.Commands.DeleteTradeItem;
 using PoseidonTradeDddApi.Application.Trades.Commands.UpdateTradeItem;
 using PoseidonTradeDddApi.Application.Trades.Queries.GetTrade;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Controllers

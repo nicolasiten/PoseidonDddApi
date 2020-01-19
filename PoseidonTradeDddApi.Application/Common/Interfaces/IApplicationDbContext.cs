@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PoseidonTradeDddApi.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

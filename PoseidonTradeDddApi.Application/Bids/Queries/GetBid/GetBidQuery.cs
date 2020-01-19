@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using MediatR;
 using PoseidonTradeDddApi.Application.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,7 +26,7 @@ namespace PoseidonTradeDddApi.Application.Bids.Queries.GetBid
                 var bidEntity = await _dbContext.BidList
                     .FindAsync(request.BidListId);
 
-                return _mapper.Map<BidModel>(bidEntity);                
+                return _mapper.Map<BidModel>(bidEntity);
             }
         }
     }

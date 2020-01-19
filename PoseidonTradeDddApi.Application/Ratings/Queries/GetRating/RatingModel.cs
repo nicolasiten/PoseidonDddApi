@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PoseidonTradeDddApi.Application.Ratings.Queries.GetRating
+﻿namespace PoseidonTradeDddApi.Application.Ratings.Queries.GetRating
 {
     public class RatingModel
     {

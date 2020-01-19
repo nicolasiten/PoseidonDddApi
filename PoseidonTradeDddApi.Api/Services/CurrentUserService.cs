@@ -1,7 +1,6 @@
 ﻿using IdentityModel;
 using Microsoft.AspNetCore.Http;
 using PoseidonTradeDddApi.Application.Common.Interfaces;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;

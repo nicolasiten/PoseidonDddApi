@@ -1,9 +1,7 @@
 ﻿using MediatR;
 using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Application.Users.Queries.GetUser;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace PoseidonTradeDddApi.Domain.Entities
+﻿namespace PoseidonTradeDddApi.Domain.Entities
 {
     public partial class Rating
     {

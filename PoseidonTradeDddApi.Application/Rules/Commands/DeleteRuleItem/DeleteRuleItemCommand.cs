@@ -2,9 +2,6 @@
 using PoseidonTradeDddApi.Application.Common.Exceptions;
 using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

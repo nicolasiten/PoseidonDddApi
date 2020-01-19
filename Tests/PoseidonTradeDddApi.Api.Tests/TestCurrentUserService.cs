@@ -1,7 +1,5 @@
 ﻿using PoseidonTradeDddApi.Application.Common.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PoseidonTradeDddApi.Api.Tests
 {

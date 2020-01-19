@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoseidonTradeDddApi.Application.Users.Commands.CreateUserItem;
 using PoseidonTradeDddApi.Application.Users.Commands.DeleteUserItem;
@@ -7,7 +6,6 @@ using PoseidonTradeDddApi.Application.Users.Commands.UpdateUserItem;
 using PoseidonTradeDddApi.Application.Users.Queries.GetAllUsers;
 using PoseidonTradeDddApi.Application.Users.Queries.GetUser;
 using PoseidonTradeDddApi.Domain.Constants;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

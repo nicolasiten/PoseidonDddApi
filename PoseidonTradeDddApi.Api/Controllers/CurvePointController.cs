@@ -4,9 +4,6 @@ using PoseidonTradeDddApi.Application.Curves.Commands.CreateCurvePointItem;
 using PoseidonTradeDddApi.Application.Curves.Commands.DeleteCurvePointItem;
 using PoseidonTradeDddApi.Application.Curves.Commands.UpdateCurvePointItem;
 using PoseidonTradeDddApi.Application.Curves.Queries.GetCurvePoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Controllers

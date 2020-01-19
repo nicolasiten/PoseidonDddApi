@@ -1,8 +1,5 @@
 ﻿using MediatR;
 using PoseidonTradeDddApi.Application.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,7 +18,7 @@ namespace PoseidonTradeDddApi.Application.Users.Commands.CreateUserItem
         public class CreateUserItemCommandHandler : IRequestHandler<CreateUserItemCommand, string>
         {
             private readonly IIdentityService _identityService;
-                
+
             public CreateUserItemCommandHandler(IIdentityService identityService)
             {
                 _identityService = identityService;

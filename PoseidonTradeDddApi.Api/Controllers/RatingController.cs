@@ -4,9 +4,6 @@ using PoseidonTradeDddApi.Application.Ratings.Commands.CreateRatingItem;
 using PoseidonTradeDddApi.Application.Ratings.Commands.DeleteRatingItem;
 using PoseidonTradeDddApi.Application.Ratings.Commands.UpdateRatingItem;
 using PoseidonTradeDddApi.Application.Ratings.Queries.GetRating;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Controllers

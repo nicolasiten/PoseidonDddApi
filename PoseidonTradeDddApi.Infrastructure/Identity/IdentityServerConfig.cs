@@ -1,10 +1,8 @@
 ﻿using IdentityModel;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
-using System;
 using System.Collections.Generic;
 using System.Security.Claims;
-using System.Text;
 using static IdentityServer4.IdentityServerConstants;
 
 namespace PoseidonTradeDddApi.Infrastructure.Identity
@@ -51,10 +49,10 @@ namespace PoseidonTradeDddApi.Infrastructure.Identity
                     AllowOfflineAccess = true,
                     RefreshTokenUsage = TokenUsage.OneTimeOnly,
 
-                    AllowedScopes = 
-                    { 
-                        "openid", 
-                        "profile", 
+                    AllowedScopes =
+                    {
+                        "openid",
+                        "profile",
                         PoseidonApiName,
                         StandardScopes.OfflineAccess
                     }

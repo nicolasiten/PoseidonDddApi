@@ -1,7 +1,5 @@
 ﻿using FluentValidation;
 using MediatR;
-using MediatR.Pipeline;
-using PoseidonTradeDddApi.Application.Common.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;

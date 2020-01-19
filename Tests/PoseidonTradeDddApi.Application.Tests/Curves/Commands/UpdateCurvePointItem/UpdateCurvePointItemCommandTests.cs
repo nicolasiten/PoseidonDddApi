@@ -1,8 +1,6 @@
 ﻿using PoseidonTradeDddApi.Application.Common.Exceptions;
 using PoseidonTradeDddApi.Application.Curves.Commands.UpdateCurvePointItem;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;

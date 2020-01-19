@@ -5,11 +5,9 @@ using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Application.Common.Models;
 using PoseidonTradeDddApi.Application.Users.Queries.GetUser;
 using PoseidonTradeDddApi.Domain.Constants;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Infrastructure.Identity

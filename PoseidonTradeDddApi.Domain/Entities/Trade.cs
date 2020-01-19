@@ -1,6 +1,5 @@
 ﻿using PoseidonTradeDddApi.Domain.Common;
 using System;
-using System.Collections.Generic;
 
 namespace PoseidonTradeDddApi.Domain.Entities
 {

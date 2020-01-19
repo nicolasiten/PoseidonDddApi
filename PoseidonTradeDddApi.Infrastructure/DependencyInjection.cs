@@ -13,9 +13,6 @@ using PoseidonTradeDddApi.Application.Common.Interfaces;
 using PoseidonTradeDddApi.Domain.Constants;
 using PoseidonTradeDddApi.Infrastructure.Identity;
 using PoseidonTradeDddApi.Infrastructure.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PoseidonTradeDddApi.Infrastructure
 {

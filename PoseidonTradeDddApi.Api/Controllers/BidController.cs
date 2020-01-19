@@ -4,9 +4,6 @@ using PoseidonTradeDddApi.Application.Bids.Commands.CreateBidItem;
 using PoseidonTradeDddApi.Application.Bids.Commands.DeleteBidItem;
 using PoseidonTradeDddApi.Application.Bids.Commands.UpdateBidItem;
 using PoseidonTradeDddApi.Application.Bids.Queries.GetBid;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PoseidonTradeDddApi.Api.Controllers

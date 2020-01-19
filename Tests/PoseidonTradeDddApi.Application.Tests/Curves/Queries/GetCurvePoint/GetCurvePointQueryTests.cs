@@ -1,7 +1,5 @@
 ﻿using PoseidonTradeDddApi.Application.Curves.Queries.GetCurvePoint;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
@@ -13,7 +11,7 @@ namespace PoseidonTradeDddApi.Application.Tests.Curves.Queries.GetCurvePoint
         [Fact]
         public async Task Handle_ReturnsCorrectCurvePointModel()
         {
-            var query = new GetCurvePointQuery 
+            var query = new GetCurvePointQuery
             {
                 Id = 1
             };

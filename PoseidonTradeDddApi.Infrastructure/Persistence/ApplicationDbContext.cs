@@ -7,9 +7,7 @@ using PoseidonTradeDddApi.Domain.Common;
 using PoseidonTradeDddApi.Domain.Entities;
 using PoseidonTradeDddApi.Infrastructure.Identity;
 using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,7 +20,7 @@ namespace PoseidonTradeDddApi.Infrastructure.Persistence
         public ApplicationDbContext(
             DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions,
-            ICurrentUserService currentUserService) 
+            ICurrentUserService currentUserService)
             : base(options, operationalStoreOptions)
         {
             _currentUserService = currentUserService;

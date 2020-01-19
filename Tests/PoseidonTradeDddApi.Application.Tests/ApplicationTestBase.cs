@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using PoseidonTradeDddApi.Application.Common.Mappings;
 using PoseidonTradeDddApi.Infrastructure.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PoseidonTradeDddApi.Application.Tests
 {
